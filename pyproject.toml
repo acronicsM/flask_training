@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "flask-training"
+version = "0.1.0"
+description = "test"
+authors = ["acronicsM <91975262+acronicsM@users.noreply.github.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+flask = "^2.2.3"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

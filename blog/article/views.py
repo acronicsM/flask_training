@@ -13,7 +13,7 @@ ARTICLES = {
 }
 
 
-@article.route('/')
+@article.route('/article')
 def article_list():
     return render_template(
         'article/list.html',

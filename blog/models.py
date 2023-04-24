@@ -1,8 +1,8 @@
-# from flask_login import UserMixin
+from flask_login import UserMixin
 from blog.app import db
 
 
-class User(db.Model):
+class User(db.Model, UserMixin):
     __tablename__ = "users"
 
     id = db.Column(db.Integer, primary_key=True)

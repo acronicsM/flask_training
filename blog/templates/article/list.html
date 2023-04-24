@@ -8,7 +8,7 @@ Articles list
 <div class="row">
     <div class="col">
         <h1>USERS:</h1>
-        {% for article_id in articles %}
+        {% for article_id  in articles %}
         <ul>
             <li><a href="{{ url_for('article.get_article', pk=article_id) }}">{{ articles[article_id] }}</a></li>
         </ul>

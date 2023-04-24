@@ -7,7 +7,6 @@ app = create_app()
 
 @app.cli.command("init-db", help="create all db")
 def init_db():
-    from blog.models import User
     db.create_all()
 
 

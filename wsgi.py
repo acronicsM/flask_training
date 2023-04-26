@@ -1,8 +1,15 @@
 from werkzeug.security import generate_password_hash
 
-from blog.app import create_app, db
+from blog.app import db, create_app
 
 app = create_app()
+
+if __name__ == "__main__":
+    app.run(
+        host="0.0.0.0",
+        port=5000,
+        debug=True
+    )
 
 
 @app.cli.command("init-db", help="create all db")
@@ -17,3 +24,5 @@ def create_users():
         User(email="name@email.com", password=generate_password_hash("test"))
     )
     db.session.commit()
+
+

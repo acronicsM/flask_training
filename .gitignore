@@ -1,0 +1,11 @@
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+*.sqlite
+*.db
+
+*.env

@@ -1,5 +1,5 @@
 from flask_login import UserMixin
-from blog.app import db
+from blog.models.database import db
 from werkzeug.security import generate_password_hash, check_password_hash
 
 
@@ -12,7 +12,7 @@ class User(db.Model, UserMixin):
 
     def __init__(self, email, password):
         self.email = email
-        self._password = password
+        self._password = generate_password_hash(password)
 
     @property
     def password(self):

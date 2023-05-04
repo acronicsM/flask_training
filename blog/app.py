@@ -3,13 +3,14 @@ from flask import Flask
 from blog.article.views import article
 from blog.auth.views import auth
 from blog.index.views import index
-from blog.user.views import user
-from blog.extension import db, login_manager, migrate
-from blog.models import User
+from blog.user.views import user_app
+from blog.extension import login_manager, migrate, csrf
+from blog.models.user import User
+from blog.models.database import db
 
 
 VIEWS = [
-    user,
+    user_app,
     article,
     index,
     auth,
@@ -19,6 +20,8 @@ VIEWS = [
 def create_app() -> Flask:
     app = Flask(__name__)
     app.config.from_object('blog.configs')
+
+    csrf.init_app(app)
 
     register_extensions(app)
     register_blueprint(app)

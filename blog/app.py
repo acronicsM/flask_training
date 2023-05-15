@@ -4,6 +4,7 @@ from blog.article.views import article
 from blog.auth.views import auth
 from blog.index.views import index
 from blog.user.views import user_app
+from .author.views import author
 from blog.extension import login_manager, migrate, csrf
 from blog.models.user import User
 from blog.models.database import db
@@ -14,14 +15,13 @@ VIEWS = [
     article,
     index,
     auth,
+    author,
 ]
 
 
 def create_app() -> Flask:
     app = Flask(__name__)
     app.config.from_object('blog.configs')
-
-    csrf.init_app(app)
 
     register_extensions(app)
     register_blueprint(app)
@@ -31,6 +31,7 @@ def create_app() -> Flask:
 def register_extensions(app):
     db.init_app(app)
     migrate.init_app(app, db, compare_type=True)
+    csrf.init_app(app)
 
     login_manager.login_view = 'auth.login'
     login_manager.init_app(app)

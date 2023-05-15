@@ -26,3 +26,4 @@ def create_users():
     db.session.commit()
 
 
+COMMANDS = [init_db, create_users]

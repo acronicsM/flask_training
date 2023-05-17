@@ -15,7 +15,7 @@ VIEWS = [
     article,
     index,
     auth,
-    author,
+    author
 ]
 
 

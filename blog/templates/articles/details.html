@@ -1,15 +1,33 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 
 {% block title %}
-    {{ article.title }}
+   {{ article.title }}
 {% endblock %}
+
 {% block body %}
-    <h1>
-        {{ article.title }}
-    </h1>
-    <p>
-    {{ article.text }}
-    <div>Author: {{ article.author.user.first_name }} {{ article.author.user.last_name }} ({{ article.author.id }})</div>
-    <div>Created at: {{ article.created_at }}</div>
-    <div>Updated at: {{ article.updated_at }}</div>
+    <div class="row">
+        <h1>{{ article.title }}</h1>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">{{ article.text }}</div>
+    </div>
+
+    <div class="row">
+        <div class="col-6">
+            <div> <small class="text_muted">Author {{ article.author.user.email }}</small></div>
+            <div> <small class="text_muted">Created at: {{ article.created_at.strftime('%d-%m-%Y %H:%M:%S') }}</small></div>
+            <div> <small class="text_muted">Updated at: {{ article.updated_at.strftime('%d-%m-%Y %H:%M:%S') }}</small></div>
+        </div>
+
+         <div class="col-6">
+            {% if article.tags %}
+                {% for tag in article.tags %}
+                    <span class="badge bg-primary">{{ tag.name }}</span>
+                {% endfor %}
+            {% endif %}
+        </div>
+
+    </div>
+
 {% endblock %}

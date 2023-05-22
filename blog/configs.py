@@ -12,3 +12,5 @@ SQLALCHEMY_TRACK_MODIFICATION = False
 SQLALCHEMY_DATABASE_URI = os.getenv('DATABASE_URL', default='sqlite:///db.sqlite')
 
 WTF_CSRF_ENABLED = True
+
+FLASK_ADMIN_SWATCH = 'pulse'

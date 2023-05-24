@@ -55,7 +55,8 @@ def create_article():
             for tag in selected_tags:
                 _article.tags.append(tag)
 
-        if current_user.author:
+        # if current_user.author:
+        if False:
             article.author = current_user.author.id
         else:
             author = Author(user_id=current_user.id)

@@ -4,13 +4,6 @@ from blog.app import db, create_app
 
 app = create_app()
 
-if __name__ == "__main__":
-    app.run(
-        host="0.0.0.0",
-        port=5000,
-        debug=True
-    )
-
 
 @app.cli.command("init-db", help="create all db")
 def init_db():
@@ -44,3 +37,14 @@ def create_tags():
 
 
 COMMANDS = [init_db, create_users, create_tags]
+
+if __name__ == "__main__":
+    init_db()
+    create_users()
+    create_tags()
+
+    app.run(
+        host="0.0.0.0",
+        port=5000,
+        debug=True
+    )

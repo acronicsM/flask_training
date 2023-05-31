@@ -41,6 +41,7 @@ def register_extensions(app: Flask):
     csrf.init_app(app)
     admin.init_app(app)
 
+    db.create_all()
 
     login_manager.login_view = 'auth.login'
     login_manager.init_app(app)

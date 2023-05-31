@@ -39,9 +39,6 @@ def create_tags():
 COMMANDS = [init_db, create_users, create_tags]
 
 if __name__ == "__main__":
-    init_db()
-    create_users()
-    create_tags()
 
     app.run(
         host="0.0.0.0",
